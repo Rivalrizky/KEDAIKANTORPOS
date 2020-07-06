@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">PISANG KRIBO</string>
+    <string name="selected_item">Selected item:</string>
+    <string-array name="KriteriaHarga">
+        <item>Murah</item>
+        <item>Sedang</item>
+        <item>Mahal</item>
+    </string-array>
+    <string-array name="KriteriaToping">
+        <item>1 Toping</item>
+        <item>2 Toping</item>
+        <item>3 Toping</item>
+    </string-array>
+    <string-array name="KriteriaUkuran">
+        <item>Mini</item>
+        <item>Sedang</item>
+        <item>Jumbo</item>
+    </string-array>
+    <string-array name="Pertimbangan">
+        <item>Harga</item>
+        <item>Ukuran</item>
+        <item>Toping</item>
+    </string-array>
+    <string-array name="Bulan">
+        <item>ALL</item>
+        <item>Januari</item>
+        <item>Februari</item>
+        <item>Maret</item>
+        <item>April</item>
+        <item>Mei</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>Agustus</item>
+        <item>September</item>
+        <item>November</item>
+        <item>Oktober</item>
+        <item>Desember</item>
+    </string-array>
+</resources>
