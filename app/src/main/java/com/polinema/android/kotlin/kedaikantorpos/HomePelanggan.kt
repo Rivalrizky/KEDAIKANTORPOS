@@ -12,6 +12,11 @@ class HomePelanggan : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home_pelanggan)
+        back_home_pelanggan.setOnClickListener{
+            //            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+        }
         btListPesan.setOnClickListener{
             //            FirebaseAuth.getInstance().signOut()
             val intent = Intent(this,TransaksiActivity::class.java)

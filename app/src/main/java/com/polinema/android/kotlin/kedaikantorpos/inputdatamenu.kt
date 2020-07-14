@@ -146,14 +146,18 @@ class inputdatamenu : AppCompatActivity(), View.OnClickListener {
                             hm.put(F_URL, task.result.toString())
                             db.document(fileName).set(hm).addOnSuccessListener {
                                 Toast.makeText(
-                                    this,"File succesfully uploaded", Toast.LENGTH_LONG
+                                    this,"File Sukses di Tambahkan", Toast.LENGTH_LONG
                                 ).show()
-                            }
+                            }.addOnFailureListener { task ->
+                                Toast.makeText(this, "Data Gagal Di Tambahkan : ${task.message}", Toast.LENGTH_SHORT).show()
                         }
+                    }
                 }
             }
+
         }
         if (v?.id != R.id.btnUpload) startActivityForResult(intent, RC_OK)
+
     }
 
 

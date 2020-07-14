@@ -51,15 +51,9 @@ class TransaksiActivity : AppCompatActivity(), View.OnClickListener {
     val F_QUANTITY = "file_quantity"
 
 
-//    val itemClick = AdapterView.OnItemClickListener { parent, view, position, id ->
-//        val idtrx = view.findViewById<View>(R.id.tsIDT) as TextView
-//        Log.i(this.toString(), idtrx.text.toString())
-//        model!!.setMsgCommunicator(idtrx.text.toString())
-//
-//
-//    }
+
     fun showData(){
-        db.whereEqualTo("file_name", FirebaseAuth.getInstance().currentUser!!.email.toString()).get().addOnSuccessListener { result ->
+        db.whereEqualTo("file_name", FirebaseAuth.getInstance().currentUser!!.email.toString()).whereEqualTo("file_status", "Hutang").get().addOnSuccessListener { result ->
             alFile.clear()
             for (doc in result){
                 val hm = HashMap<String,Any>()

@@ -22,6 +22,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_menusaw.*
 import kotlinx.android.synthetic.main.login_dialog.view.*
+import kotlinx.android.synthetic.main.pesan_dialog.view.*
 import kotlinx.android.synthetic.main.row_menu.view.*
 import java.text.DecimalFormat
 import java.text.SimpleDateFormat
@@ -111,36 +112,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         auth = FirebaseAuth.getInstance()
 
-//        val currentUser = auth.currentUser
-//        if (currentUser != null) {
-//        db = FirebaseFirestore.getInstance().collection("keranjang")
-//        db.whereEqualTo("file_name", currentUser).get()
-//            .addOnSuccessListener {
-//                var number = ""
-//                if (it.count() < 10) number = "00" + (it.count() + 1)
-//                else if (it.count() < 100) number = "0" + (it.count() + 1)
-//                else if (it.count() > 100) number = it.count().toString()
-//                Log.e("TAG", number)
-//                idTrans.setText("U$number")
-////                val intent = Intent(this,KeranjangActivity::class.java)
-////                intent.putExtra("doc", "U$number")
-////                startActivity(intent)
-//            }
-//        }
-
-
-
-//        listMenuPelanggan.setOnClickListener{
-//            val currentUser = auth.currentUser
-//            if (currentUser != null) {
-//                updateUI()
-//            }else{
-//                val intent = Intent(this,LoginActivity::class.java)
-//                startActivity(intent)
-//            }
-//        }
-
-//        listMenuPelanggan.setOnItemClickListener(itemClick)
         pelanggan.setOnClickListener{
             val currentUser = auth.currentUser
             if (currentUser != null) {
@@ -148,15 +119,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 startActivity(intent)
             }else{
                 val mDialogView = LayoutInflater.from(this).inflate(R.layout.login_dialog, null)
-                //AlertDialogBuilder
                 val mBuilder = AlertDialog.Builder(this)
                     .setView(mDialogView)
                     .setTitle("Apakah Kamu Ingin Login ??")
-                //show dialog
                 val  mAlertDialog = mBuilder.show()
-                //login button click of custom layout
                 mDialogView.dialogLoginBtn.setOnClickListener {
-                    //dismiss dialog
                     mAlertDialog.dismiss()
                     val currentUser = auth.currentUser
                     if (currentUser != null) {
@@ -190,7 +157,28 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         belanja.setOnClickListener{
             val currentUser = auth.currentUser
             if (currentUser != null) {
-                updateUI()
+                val mDialogView1 = LayoutInflater.from(this).inflate(R.layout.pesan_dialog, null)
+                //AlertDialogBuilder
+                val mBuilder1 = AlertDialog.Builder(this)
+                    .setView(mDialogView1)
+                    .setTitle("Apakah Anda Yakin Dengan Yang Anda Pesan ??")
+                //show dialog
+                val  mAlertDialog = mBuilder1.show()
+
+                mDialogView1.dialogPesanBtn.setOnClickListener {
+                    //dismiss dialog
+                    updateUI()
+                    mAlertDialog.dismiss()
+
+
+                }
+                //cancel button click of custom layout
+                mDialogView1.dialogPesanCancelBtn.setOnClickListener {
+                    //dismiss dialog
+                    mAlertDialog.dismiss()
+                }
+
+
             }else{
                 val mDialogView = LayoutInflater.from(this).inflate(R.layout.login_dialog, null)
                 //AlertDialogBuilder
@@ -205,7 +193,29 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     mAlertDialog.dismiss()
                     val currentUser = auth.currentUser
                     if (currentUser != null) {
-                        updateUI()
+                        val mDialogView1 = LayoutInflater.from(this).inflate(R.layout.pesan_dialog, null)
+                        //AlertDialogBuilder
+                        val mBuilder1 = AlertDialog.Builder(this)
+                            .setView(mDialogView1)
+                            .setTitle("Apakah Anda Yakin Dengan Yang Anda Pesan ??")
+                        //show dialog
+                        val  mAlertDialog = mBuilder1.show()
+                        //login button click of custom layout
+                        mDialogView1.dialogPesanBtn.setOnClickListener {
+                            //dismiss dialog
+                            updateUI()
+                            mAlertDialog.dismiss()
+
+                            //get text from EditTexts of custom layout
+
+                            //set the input text in TextView
+//            mainInfoTv.setText("Name:"+ name +"\nEmail: "+ email +"\nPassword: "+ password)
+                        }
+                        //cancel button click of custom layout
+                        mDialogView1.dialogPesanCancelBtn.setOnClickListener {
+                            //dismiss dialog
+                            mAlertDialog.dismiss()
+                        }
                     }else{
                         val intent = Intent(this,LoginActivity::class.java)
                         startActivity(intent)

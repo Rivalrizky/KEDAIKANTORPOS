@@ -296,12 +296,10 @@ class Pertanyaan : AppCompatActivity() {
 //                    }
                         Log.e("Array Menu", z.toString())
                         Log.e("Menu", armenu.toString())
-
-                        val men = armenu[idx]
+//                    val men = armenu
                         val intent = Intent(this, menusaw::class.java)
-                        intent.putExtra("xx", men)
+                        intent.putExtra("xx", armenu)
                         startActivity(intent)
-                        Log.e("Menu", men )
                         Log.e("Hasil", idx.toString() )
                     }
             }
@@ -342,18 +340,16 @@ class Pertanyaan : AppCompatActivity() {
                             }
                         }
                     }
-
 //                    for (i in 0 until z.size ){
 //                        if (max == z[i].toDouble())
 //                            idx = i
 //                    }
                     Log.e("Array Menu", z.toString())
                     Log.e("Menu", armenu.toString())
-                    val men = armenu[idx]
+//                    val men = armenu
                     val intent = Intent(this, menusaw::class.java)
-                    intent.putExtra("xx", men)
+                    intent.putExtra("xx", armenu)
                     startActivity(intent)
-                    Log.e("Menu", men )
                     Log.e("Hasil", idx.toString() )
                 }
             }
@@ -400,11 +396,10 @@ class Pertanyaan : AppCompatActivity() {
 //                    }
                     Log.e("Array Menu", z.toString())
                     Log.e("Menu", armenu.toString())
-                    val men = armenu[idx]
+//                    val men = armenu
                     val intent = Intent(this, menusaw::class.java)
-                    intent.putExtra("xx", men)
+                    intent.putExtra("xx", armenu)
                     startActivity(intent)
-                    Log.e("Menu", men )
                     Log.e("Hasil", idx.toString() )
                 }
             }
@@ -451,11 +446,10 @@ class Pertanyaan : AppCompatActivity() {
 //                    }
                     Log.e("Array Menu", z.toString())
                     Log.e("Menu", armenu.toString())
-                    val men = armenu[idx]
+//                    val men = armenu
                     val intent = Intent(this, menusaw::class.java)
-                    intent.putExtra("xx", men)
+                    intent.putExtra("xx", armenu)
                     startActivity(intent)
-                    Log.e("Menu", men )
                     Log.e("Hasil", idx.toString() )
                 }
             }
@@ -502,11 +496,10 @@ class Pertanyaan : AppCompatActivity() {
 //                    }
                     Log.e("Array Menu", z.toString())
                     Log.e("Menu", armenu.toString())
-                    val men = armenu[idx]
+//                    val men = armenu
                     val intent = Intent(this, menusaw::class.java)
-                    intent.putExtra("xx", men)
+                    intent.putExtra("xx", armenu)
                     startActivity(intent)
-                    Log.e("Menu", men )
                     Log.e("Hasil", idx.toString() )
                 }
             }
@@ -553,11 +546,10 @@ class Pertanyaan : AppCompatActivity() {
 //                    }
                     Log.e("Array Menu", z.toString())
                     Log.e("Menu", armenu.toString())
-                    val men = armenu[idx]
+//                    val men = armenu
                     val intent = Intent(this, menusaw::class.java)
-                    intent.putExtra("xx", men)
+                    intent.putExtra("xx", armenu)
                     startActivity(intent)
-                    Log.e("Menu", men )
                     Log.e("Hasil", idx.toString() )
                 }
             }

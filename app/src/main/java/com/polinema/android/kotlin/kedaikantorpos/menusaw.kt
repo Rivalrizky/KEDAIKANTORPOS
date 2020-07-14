@@ -280,23 +280,29 @@ class menusaw : AppCompatActivity(), View.OnClickListener {
     }
     fun showData(){
         val bundle = intent.extras
-        Log.e("coba1", bundle!!.getString("xx"))
+        val menu = bundle!!.getStringArrayList("xx") as ArrayList<String>
+        Log.e("coba1", menu.toString())
         arrH.clear()
         arrI.clear()
         arrQ.clear()
         listNotes.clear()
-        db1.collection("menu").whereEqualTo("file_name", bundle!!.getString("xx")).get().addOnSuccessListener { result ->
+//        val ar = bundle!!.getStringArray("xx")
+        db1.collection("menu").get().addOnCompleteListener {
             alFile.clear()
-            for (doc in result){
-                val menu = doc.get(F_NAME).toString()
-                val harga = doc.get(F_HARGA).toString()
-                val deskripsi = doc.get(F_DESKRIPSI).toString()
-                val url = doc.get(F_URL).toString()
+            for (doc in it.result!!){
+                menu!!.map {
+                    if (doc[F_NAME].toString() == it) {
+                        val menu = doc.get(F_NAME).toString()
+                        val harga = doc.get(F_HARGA).toString()
+                        val deskripsi = doc.get(F_DESKRIPSI).toString()
+                        val url = doc.get(F_URL).toString()
 
-                alFile.add(Note(harga, menu, deskripsi, url,quantity))
-                arrQ.add(quantity.toString())
-                arrH.add(harga)
-                arrI.add(menu)
+                        alFile.add(Note(harga, menu, deskripsi, url,quantity))
+                        arrQ.add(quantity.toString())
+                        arrH.add(harga)
+                        arrI.add(menu)
+                    }
+                }
             }
             listMenuSaw.adapter = myAdaper(this, alFile)
         }
